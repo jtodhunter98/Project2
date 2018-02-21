@@ -24,7 +24,7 @@ namespace Project2
                 while (!read.EndOfStream)
                 {
                     values = read.ReadLine().Split(COMMA);
-                    entry = new Team(values[1],values[5],values[3],values[4],values[11]);
+                    entry = new Team(values[1], values[0], values[5], values[3], values[4], values[11]);
                     Console.WriteLine(entry);
                     teams.Add(entry);
                     Console.WriteLine();
@@ -44,17 +44,20 @@ namespace Project2
 
     class Team
     {        
+        
+        public string sb { get; set; }
+        public string date { get; set; }
         public string winner { get; set; }
-        public string sb { get; set; }       
         public string quarterback { get; set; }
         public string coach { get; set; }
         public string mvp { get; set; }
         
 
-        public Team(string sb, string winner, string quarterback, string coach, string mvp)
+        public Team(string sb, string date, string winner, string quarterback, string coach, string mvp)
         {            
             
             this.sb = sb;
+            this.date = date;
             this.winner = winner;            
             this.quarterback = quarterback;
             this.coach = coach;
@@ -62,7 +65,7 @@ namespace Project2
         }
         public override string ToString()
         {
-            return String.Format($"Super Bowl: {sb} \nWinner: {winner} \nQuarterback: {quarterback} \nCoach: {coach} \nMVP: {mvp}");
+            return String.Format($"Super Bowl: {sb} \nDate: {date} \nWinner: {winner} \nQuarterback: {quarterback} \nCoach: {coach} \nMVP: {mvp}");
         }
     }
 }
